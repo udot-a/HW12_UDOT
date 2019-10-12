@@ -1,33 +1,3 @@
-// ************************* REQUIRED ******************************
-
-
-
-
-
-// function printImg(data) {
-//     elements = []
-//     Object.values(JSON.parse(data))[0].forEach((item, index) => {
-//         elements.push(required.appendChild(document.createElement('img')))
-//         elements[index].style.width = '50px;'
-//         elements[index].src = item['src']
-//         elements[index].title = item['title']
-//     });
-// }
-
-// readFile.onclick = (event) => {
-//     var request = new XMLHttpRequest
-//     request.open(
-//         "GET",
-//         './db.json'
-//     )
-
-//     request.onload = function (event) {
-//         this.status === 200 ?
-//             printImg(this.response) : console.warn('Something wrong with loading file!')
-//     }
-//     request.send()
-// }
-
 // // ******************* ADDITIONAL #1 *******************************************
 
 const render = (() => {
@@ -84,15 +54,12 @@ button.onclick = (event) => {
     promise(() => {
         imgRuletka.classList.add('opacityOff')
         imgSunduk.classList.add('opacityOn')
-
     }, 4).then(promise(() => {
         let user;
         fetch(`https://api.github.com/users/${winner}`)
             .then(response => response.json())
             .then(response => {
-                
                 imgSunduk.src = response.avatar_url
-                console.log(response)
                 let name = response.name ||'User without name'
                 userName = outputName.appendChild(document.createElement('p'))
                 userName.innerText = name
